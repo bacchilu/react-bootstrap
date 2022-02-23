@@ -1,0 +1,28 @@
+{
+    "name": "react-bootstrap-modal",
+    "version": "1.0.0",
+    "description": "ReactJS Bootstrap Modal",
+    "private": true,
+    "scripts": {
+        "update": "ncu -u",
+        "watch": "webpack --env development --config webpack.config.js --watch",
+        "build": "webpack --env production --config webpack.config.js",
+        "deploy": "surge public"
+    },
+    "author": "Luca Bacchi <bacchilu@gmail.com> (https://github.com/bacchilu)",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.17.5",
+        "@babel/preset-env": "^7.16.11",
+        "@babel/preset-react": "^7.16.7",
+        "babel-loader": "^8.2.3",
+        "webpack": "^5.69.1",
+        "webpack-cli": "^4.9.2",
+        "npm-check-updates": "^12.4.0"
+    },
+    "dependencies": {
+        "core-js": "^3.21.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    }
+}
