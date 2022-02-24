@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {Modal} from './modal';
+import {Modal} from './lib';
 import {getRandomTerzina} from './dante';
 
 const ModalBody = function () {
