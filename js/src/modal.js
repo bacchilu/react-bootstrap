@@ -11,6 +11,10 @@ export const Modal = (function () {
     modalDiv.appendChild(modalDialogDiv);
     document.body.appendChild(modalDiv);
 
+    modalDiv.addEventListener('hidden.bs.modal', function (event) {
+        ReactDOM.render(null, modalDialogDiv);
+    });
+
     return {
         render: function (title, body, footer = null) {
             ReactDOM.render(
