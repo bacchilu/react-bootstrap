@@ -2,24 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {Modal} from './modal';
-
-const terzine = [
-    ['Nel mezzo del cammin di nostra vita', 'mi ritrovai per una selva oscura,', 'ché la diritta via era smarrita.'],
-    [
-        'Ahi quanto a dir qual era è cosa dura',
-        'esta selva selvaggia e aspra e forte',
-        'che nel pensier rinova la paura!',
-    ],
-    [
-        'Tant’è amara che poco è più morte;',
-        'ma per trattar del ben ch’i’ vi trovai,',
-        'dirò de l’altre cose ch’i’ v’ ho scorte.',
-    ],
-];
+import {getRandomTerzina} from './dante';
 
 const ModalBody = function () {
-    const terzinaRandom = terzine[Math.floor(Math.random() * terzine.length)];
-    const content = terzinaRandom.map(function (t, index) {
+    const content = getRandomTerzina().map(function (t, index) {
         return (
             <span key={index}>
                 {t}
@@ -33,7 +19,9 @@ const ModalBody = function () {
             <blockquote className="blockquote">
                 <p>{content}</p>
             </blockquote>
-            <figcaption className="blockquote-footer">anonymous Florentine</figcaption>
+            <figcaption className="blockquote-footer">
+                Inferno, <cite title="Source Title">Canto Ⅰ</cite>
+            </figcaption>
         </figure>
     );
 };
