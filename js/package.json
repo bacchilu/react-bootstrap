@@ -2,7 +2,8 @@
     "name": "react-bootstrap-modal",
     "version": "1.0.0",
     "description": "ReactJS Bootstrap Modal",
-    "private": true,
+    "private": false,
+    "main": "dist/model.js",
     "scripts": {
         "update": "ncu -u",
         "watch": "webpack --env development --config webpack.config.js --watch",

@@ -4,6 +4,7 @@ module.exports = function (env) {
     const res = {
         entry: {
             index: './src/index.js',
+            modal: './src/modal.js',
         },
         output: {
             filename: '[name].js',
