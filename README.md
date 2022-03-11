@@ -1,4 +1,4 @@
-# react-bootstrap-modal
+# react-bootstrap
 
 Bootstrap Modal as a React Component.
 
@@ -6,12 +6,12 @@ Bootstrap Modal as a React Component.
 
 Install with
 
-    npm install @bacchilu/react-bootstrap-modal
+    npm install @bacchilu/react-bootstrap
 
 ## Usage
 
 In this way:
 
-    import {Modal} from '@bacchilu/react-bootstrap-modal';
+    import {Modal} from '@bacchilu/react-bootstrap';
 
     Modal.render('Hello World', <p>CIAO</p>);
