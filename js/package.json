@@ -1,6 +1,6 @@
 {
     "name": "@bacchilu/react-bootstrap-modal",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "ReactJS Bootstrap Modal",
     "keywords": [
         "react",
@@ -26,9 +26,9 @@
         "@babel/preset-env": "^7.16.11",
         "@babel/preset-react": "^7.16.7",
         "babel-loader": "^8.2.3",
-        "webpack": "^5.69.1",
+        "webpack": "^5.70.0",
         "webpack-cli": "^4.9.2",
-        "npm-check-updates": "^12.4.0"
+        "npm-check-updates": "^12.5.2"
     },
     "dependencies": {
         "core-js": "^3.21.1",
