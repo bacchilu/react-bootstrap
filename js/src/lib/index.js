@@ -1,1 +1,2 @@
-export {Modal} from './modal.js';
+export {Modal} from './modal';
+export {Toast} from './toast';

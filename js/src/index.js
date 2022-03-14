@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {Modal} from './lib';
+import {Modal, Toast} from './lib';
 import {getRandomTerzina} from './dante';
 
 const ModalBody = function () {
@@ -27,14 +27,27 @@ const ModalBody = function () {
 };
 
 const App = function () {
-    const onClick = function () {
+    const openModal = function () {
         Modal.render('Hello Dante', <ModalBody />);
     };
 
+    const showToast = function () {
+        Toast.render();
+    };
+
     return (
-        <button type="button" className="btn btn-primary btn-lg" onClick={onClick}>
-            Open Modal
-        </button>
+        <>
+            <p>
+                <button type="button" className="btn btn-primary btn-lg" onClick={openModal}>
+                    Open Modal
+                </button>
+            </p>
+            <p>
+                <button type="button" className="btn btn-primary btn-lg" onClick={showToast}>
+                    Show Toast
+                </button>
+            </p>
+        </>
     );
 };
 
