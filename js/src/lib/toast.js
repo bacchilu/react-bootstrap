@@ -1,7 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 
-const ToastContent = function () {
+const ToastContent = function ({rootElement}) {
+    React.useEffect(function () {
+        const toast = new bootstrap.Toast(rootElement);
+        toast.show();
+    });
+
     return (
         <>
             <div className="toast-header">
@@ -23,12 +28,11 @@ export const Toast = (function () {
     positionDiv.appendChild(toastDiv);
     document.body.appendChild(positionDiv);
 
+    const root = createRoot(toastDiv);
+
     return {
         render: function () {
-            ReactDOM.render(<ToastContent />, toastDiv, function () {
-                const toast = new bootstrap.Toast(toastDiv);
-                toast.show();
-            });
+            root.render(<ToastContent rootElement={toastDiv} />);
         },
     };
 })();

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 
 import {Modal, Toast} from './lib';
 import {getRandomTerzina} from './dante';
@@ -51,4 +51,4 @@ const App = function () {
     );
 };
 
-ReactDOM.render(<App />, document.getElementById('app'));
+createRoot(document.getElementById('app')).render(<App />);

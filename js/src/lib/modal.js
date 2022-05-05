@@ -1,7 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 
-const ModalContent = function ({title, body, footer}) {
+const ModalContent = function ({title, body, footer, rootElement}) {
+    React.useEffect(function () {
+        const myModal = new bootstrap.Modal(rootElement, {backdrop: 'static'});
+        myModal.show();
+    }, []);
+
     return (
         <div className="modal-content">
             <div className="modal-header">
@@ -24,16 +29,15 @@ export const Modal = (function () {
     modalDiv.appendChild(modalDialogDiv);
     document.body.appendChild(modalDiv);
 
+    const root = createRoot(modalDialogDiv);
+
     modalDiv.addEventListener('hidden.bs.modal', function (event) {
-        ReactDOM.render(null, modalDialogDiv);
+        root.render(null);
     });
 
     return {
         render: function (title, body, footer = null) {
-            ReactDOM.render(<ModalContent title={title} body={body} footer={footer} />, modalDialogDiv, function () {
-                const myModal = new bootstrap.Modal(modalDiv, {backdrop: 'static'});
-                myModal.show();
-            });
+            root.render(<ModalContent title={title} body={body} footer={footer} rootElement={modalDiv} />);
         },
     };
 })();
