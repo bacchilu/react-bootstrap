@@ -1,0 +1,52 @@
+{
+    "name": "@bacchilu/react-bootstrap-modal",
+    "version": "1.0.0",
+    "description": "ReactJS Bootstrap Modal",
+    "keywords": [
+        "react",
+        "bootstrap",
+        "ui"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bacchilu/react-bootstrap-modal.git"
+    },
+    "private": false,
+    "source": "src/index.html",
+    "browserslist": "defaults",
+    "scripts": {
+        "update": "ncu -u",
+        "serve": "parcel -p 8000 --lazy",
+        "watch": "parcel watch",
+        "build": "rm -rf dist && rm -rf docs && parcel build --no-source-maps"
+    },
+    "author": "Luca Bacchi <bacchilu@gmail.com> (https://github.com/bacchilu)",
+    "license": "ISC",
+    "prettier": {
+        "arrowParens": "always",
+        "bracketSpacing": false,
+        "embeddedLanguageFormatting": "auto",
+        "htmlWhitespaceSensitivity": "css",
+        "insertPragma": false,
+        "jsxBracketSameLine": false,
+        "jsxSingleQuote": false,
+        "printWidth": 120,
+        "proseWrap": "preserve",
+        "quoteProps": "as-needed",
+        "requirePragma": false,
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 4,
+        "trailingComma": "es5",
+        "useTabs": false,
+        "vueIndentScriptAndStyle": false
+    },
+    "devDependencies": {
+        "npm-check-updates": "^12.5.11",
+        "parcel": "^2.5.0"
+    },
+    "dependencies": {
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0"
+    }
+}
