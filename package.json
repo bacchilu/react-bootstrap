@@ -1,6 +1,6 @@
 {
     "name": "@bacchilu/react-bootstrap-modal",
-    "version": "2.0.0",
+    "version": "1.0.0",
     "description": "ReactJS Bootstrap Modal",
     "keywords": [
         "react",
@@ -12,12 +12,13 @@
         "url": "git+https://github.com/bacchilu/react-bootstrap-modal.git"
     },
     "private": false,
-    "main": "dist/modal.js",
+    "source": "src/index.html",
+    "browserslist": "defaults",
     "scripts": {
         "update": "ncu -u",
-        "watch": "webpack --env development --config webpack.config.js --watch",
-        "build": "webpack --env production --config webpack.config.js",
-        "deploy": "surge public"
+        "serve": "parcel -p 8000 --lazy",
+        "watch": "parcel watch",
+        "build": "rm -rf dist && parcel build --no-source-maps"
     },
     "author": "Luca Bacchi <bacchilu@gmail.com> (https://github.com/bacchilu)",
     "license": "ISC",
@@ -41,16 +42,10 @@
         "vueIndentScriptAndStyle": false
     },
     "devDependencies": {
-        "@babel/core": "^7.17.10",
-        "@babel/preset-env": "^7.17.10",
-        "@babel/preset-react": "^7.16.7",
-        "babel-loader": "^8.2.5",
-        "webpack": "^5.72.0",
-        "webpack-cli": "^4.9.2",
-        "npm-check-updates": "^12.5.11"
+        "npm-check-updates": "^12.5.11",
+        "parcel": "^2.5.0"
     },
     "dependencies": {
-        "core-js": "^3.22.4",
         "react": "^18.1.0",
         "react-dom": "^18.1.0"
     }
