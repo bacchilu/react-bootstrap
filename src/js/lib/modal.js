@@ -1,26 +1,6 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 
-const ModalContent = function ({title, rootElement, children}) {
-    React.useEffect(function () {
-        const myModal = new bootstrap.Modal(rootElement);
-        myModal.show();
-    }, []);
-
-    const [body, footer] = children;
-
-    return (
-        <div className="modal-content">
-            <div className="modal-header">
-                <h5 className="modal-title">{title}</h5>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div className="modal-body">{body}</div>
-            {footer !== undefined && <div className="modal-footer">{footer}</div>}
-        </div>
-    );
-};
-
 export const Modal = (function () {
     const modalDiv = document.createElement('div');
     modalDiv.setAttribute('class', 'modal fade');
@@ -37,14 +17,38 @@ export const Modal = (function () {
         root.render(null);
     });
 
+    const myModal = new bootstrap.Modal(modalDiv);
+
+    const ModalContent = function ({title, children}) {
+        React.useEffect(function () {
+            myModal.show();
+        }, []);
+
+        const [body, footer] = children;
+
+        return (
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title">{title}</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">{body}</div>
+                {footer !== undefined && <div className="modal-footer">{footer}</div>}
+            </div>
+        );
+    };
+
     return {
-        render: function (title, body, footer) {
+        show: function (title, body, footer) {
             root.render(
-                <ModalContent title={title} rootElement={modalDiv}>
+                <ModalContent title={title}>
                     {body}
                     {footer}
                 </ModalContent>
             );
+        },
+        hide: function () {
+            myModal.hide();
         },
     };
 })();

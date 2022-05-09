@@ -26,9 +26,26 @@ const ModalBody = function () {
     );
 };
 
+const ModalFooter = function () {
+    const onClick = function () {
+        Modal.hide();
+    };
+
+    return (
+        <>
+            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
+                Close
+            </button>
+            <button type="button" className="btn btn-primary" onClick={onClick}>
+                Save changes
+            </button>
+        </>
+    );
+};
+
 const App = function () {
     const openModal = function () {
-        Modal.render('Hello Dante', <ModalBody />);
+        Modal.show('Hello Dante', <ModalBody />, <ModalFooter />);
     };
 
     const showToast = function () {
