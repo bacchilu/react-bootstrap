@@ -1,11 +1,13 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 
-const ModalContent = function ({title, body, footer, rootElement}) {
+const ModalContent = function ({title, rootElement, children}) {
     React.useEffect(function () {
-        const myModal = new bootstrap.Modal(rootElement, {backdrop: 'static'});
+        const myModal = new bootstrap.Modal(rootElement);
         myModal.show();
     }, []);
+
+    const [body, footer] = children;
 
     return (
         <div className="modal-content">
@@ -14,7 +16,7 @@ const ModalContent = function ({title, body, footer, rootElement}) {
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">{body}</div>
-            {footer !== null && <div className="modal-footer">{footer}</div>}
+            {footer !== undefined && <div className="modal-footer">{footer}</div>}
         </div>
     );
 };
@@ -36,8 +38,13 @@ export const Modal = (function () {
     });
 
     return {
-        render: function (title, body, footer = null) {
-            root.render(<ModalContent title={title} body={body} footer={footer} rootElement={modalDiv} />);
+        render: function (title, body, footer) {
+            root.render(
+                <ModalContent title={title} rootElement={modalDiv}>
+                    {body}
+                    {footer}
+                </ModalContent>
+            );
         },
     };
 })();
