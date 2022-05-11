@@ -14,38 +14,41 @@ const ModalBody = function () {
         );
     });
 
-    return (
-        <figure className="text-end">
-            <blockquote className="blockquote">
-                <p>{content}</p>
-            </blockquote>
-            <figcaption className="blockquote-footer">
-                Inferno, <cite title="Source Title">Canto Ⅰ</cite>
-            </figcaption>
-        </figure>
-    );
-};
-
-const ModalFooter = function () {
     const onClick = function () {
         Modal.hide();
     };
 
     return (
-        <>
-            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
-                Close
-            </button>
-            <button type="button" className="btn btn-primary" onClick={onClick}>
-                Save changes
-            </button>
-        </>
+        <div className="modal-content">
+            <div className="modal-header">
+                <h5 className="modal-title">Hello Dante</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+                <figure className="text-end">
+                    <blockquote className="blockquote">
+                        <p>{content}</p>
+                    </blockquote>
+                    <figcaption className="blockquote-footer">
+                        Inferno, <cite title="Source Title">Canto Ⅰ</cite>
+                    </figcaption>
+                </figure>
+            </div>
+            <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" className="btn btn-primary" onClick={onClick}>
+                    Save changes
+                </button>
+            </div>
+        </div>
     );
 };
 
 const App = function () {
     const openModal = function () {
-        Modal.show('Hello Dante', <ModalBody />, <ModalFooter />);
+        Modal.show(<ModalBody />);
     };
 
     const showToast = function () {

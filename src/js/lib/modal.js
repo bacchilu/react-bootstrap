@@ -19,33 +19,17 @@ export const Modal = (function () {
 
     const myModal = new bootstrap.Modal(modalDiv);
 
-    const ModalContent = function ({title, children}) {
+    const ModalContent = function ({children}) {
         React.useEffect(function () {
             myModal.show();
         }, []);
 
-        const [body, footer] = children;
-
-        return (
-            <div className="modal-content">
-                <div className="modal-header">
-                    <h5 className="modal-title">{title}</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div className="modal-body">{body}</div>
-                {footer !== undefined && <div className="modal-footer">{footer}</div>}
-            </div>
-        );
+        return children;
     };
 
     return {
-        show: function (title, body, footer) {
-            root.render(
-                <ModalContent title={title}>
-                    {body}
-                    {footer}
-                </ModalContent>
-            );
+        show: function (body) {
+            root.render(<ModalContent>{body}</ModalContent>);
         },
         hide: function () {
             myModal.hide();

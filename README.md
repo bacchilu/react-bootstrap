@@ -15,3 +15,7 @@ In this way:
     import {Modal} from '@bacchilu/react-bootstrap';
 
     Modal.render('Hello World', <p>CIAO</p>);
+
+## Development
+
+    npm run serve
