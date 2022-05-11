@@ -2,6 +2,7 @@ import React from 'react';
 import {createRoot} from 'react-dom/client';
 
 import {Modal, Toast} from './lib';
+// import {Modal, Toast} from '../../lib/dist/module';
 import {getRandomTerzina} from './dante';
 
 const ModalBody = function () {

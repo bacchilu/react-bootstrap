@@ -1,7 +1,7 @@
 {
     "name": "@bacchilu/react-bootstrap",
     "version": "1.0.0",
-    "description": "ReactJS Bootstrap",
+    "description": "ReactJS Bootstrap Library",
     "keywords": [
         "react",
         "bootstrap",
@@ -12,11 +12,11 @@
         "url": "git+https://github.com/bacchilu/react-bootstrap.git"
     },
     "private": false,
-    "source": "src/index.html",
+    "source": "src/index.js",
+    "module": "dist/module.js",
     "browserslist": "defaults",
     "scripts": {
         "update": "ncu -u",
-        "serve": "parcel -p 8000 --lazy",
         "watch": "parcel watch",
         "build": "rm -rf dist && parcel build --no-source-maps"
     },
