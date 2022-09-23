@@ -1,6 +1,6 @@
 # react-bootstrap
 
-Bootstrap Modal as a React Component.
+Some tests of mine in eclapsulating Bootstrap widgets in React Components.
 
 ## Install
 

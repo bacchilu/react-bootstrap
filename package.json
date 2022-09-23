@@ -43,7 +43,8 @@
     },
     "devDependencies": {
         "npm-check-updates": "^16.2.1",
-        "parcel": "^2.7.0"
+        "parcel": "^2.7.0",
+        "process": "^0.11.10"
     },
     "dependencies": {
         "react": "^18.2.0",
