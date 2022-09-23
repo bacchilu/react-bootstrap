@@ -17,26 +17,17 @@ export const Toast = (function () {
 
     const myToast = new bootstrap.Toast(toastDiv);
 
-    const ToastContent = function () {
+    const ToastContent = function ({children}) {
         React.useEffect(function () {
             myToast.show();
         }, []);
 
-        return (
-            <>
-                <div className="toast-header">
-                    <strong className="me-auto">Bootstrap</strong>
-                    <small>11 mins ago</small>
-                    <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div className="toast-body">Hello, world! This is a toast message.</div>
-            </>
-        );
+        return children;
     };
 
     return {
-        render: function () {
-            root.render(<ToastContent />);
+        show: function (body) {
+            root.render(<ToastContent>{body}</ToastContent>);
         },
     };
 })();
