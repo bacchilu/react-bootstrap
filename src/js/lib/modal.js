@@ -13,7 +13,7 @@ export const Modal = (function () {
 
     const root = createRoot(modalDialogDiv);
 
-    modalDiv.addEventListener('hidden.bs.modal', function (event) {
+    modalDiv.addEventListener('hidden.bs.modal', function () {
         root.render(null);
     });
 
