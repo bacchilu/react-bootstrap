@@ -16,7 +16,7 @@
     "browserslist": "defaults",
     "scripts": {
         "update": "ncu -u",
-        "serve": "parcel -p 8000 --lazy",
+        "serve": "parcel -p 8000",
         "watch": "parcel watch",
         "build": "rm -rf dist && parcel build --no-source-maps"
     },

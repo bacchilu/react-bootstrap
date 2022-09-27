@@ -1,2 +1,2 @@
 export {Modal} from './modal';
-export {Toast} from './toast';
+export {Toast, ToastBody} from './toast';
