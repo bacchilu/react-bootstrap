@@ -1,6 +1,6 @@
 {
     "name": "@bacchilu/react-bootstrap",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "ReactJS Bootstrap",
     "keywords": [
         "react",
@@ -42,7 +42,7 @@
         "vueIndentScriptAndStyle": false
     },
     "devDependencies": {
-        "npm-check-updates": "^16.2.1",
+        "npm-check-updates": "^16.3.2",
         "parcel": "^2.7.0",
         "process": "^0.11.10"
     },
