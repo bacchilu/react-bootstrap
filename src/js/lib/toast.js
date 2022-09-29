@@ -25,7 +25,7 @@ export const ToastBody = function ({title1, title2, close, children}) {
 
 export const Toast = (function () {
     const positionDiv = document.createElement('div');
-    positionDiv.setAttribute('class', 'toast-container position-fixed bottom-0 end-0 p-3');
+    positionDiv.setAttribute('class', 'toast-container position-fixed top-0 end-0 p-3 pt-5');
     const toastDiv = document.createElement('div');
     toastDiv.setAttribute('class', 'toast');
     positionDiv.appendChild(toastDiv);
