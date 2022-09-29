@@ -26,29 +26,36 @@ export const ToastBody = function ({title1, title2, close, children}) {
 export const Toast = (function () {
     const positionDiv = document.createElement('div');
     positionDiv.setAttribute('class', 'toast-container position-fixed top-0 end-0 p-3 pt-5');
-    const toastDiv = document.createElement('div');
-    toastDiv.setAttribute('class', 'toast');
-    positionDiv.appendChild(toastDiv);
     document.body.appendChild(positionDiv);
 
-    const root = createRoot(toastDiv);
+    const createToastDiv = function () {
+        const toastDiv = document.createElement('div');
+        toastDiv.setAttribute('class', 'toast');
+        positionDiv.appendChild(toastDiv);
 
-    toastDiv.addEventListener('hidden.bs.toast', function () {
-        root.render(null);
-    });
+        const root = createRoot(toastDiv);
 
-    const myToast = new bootstrap.Toast(toastDiv);
+        toastDiv.addEventListener('hidden.bs.toast', function () {
+            root.render(null);
+            toastDiv.remove();
+        });
 
-    const ToastContent = function ({children}) {
-        React.useEffect(function () {
-            myToast.show();
-        }, []);
+        const myToast = new bootstrap.Toast(toastDiv);
 
-        return children;
+        const ToastContent = function ({children}) {
+            React.useEffect(function () {
+                myToast.show();
+            }, []);
+
+            return children;
+        };
+
+        return {root, ToastContent};
     };
 
     return {
         show: function (body) {
+            const {root, ToastContent} = createToastDiv();
             root.render(<ToastContent>{body}</ToastContent>);
         },
     };
