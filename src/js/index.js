@@ -52,9 +52,22 @@ const App = function () {
     };
 
     const showToast = function () {
+        const content = getRandomTerzina().map(function (t, index) {
+            return (
+                <span key={index}>
+                    {t}
+                    <br />
+                </span>
+            );
+        });
+
+        const title1 = Math.random() < 0.5 ? 'Dante Alighieri' : null;
+        const title2 = Math.random() < 0.5 ? 'Inferno, Canto Ⅰ' : null;
+        const close = Math.random() < 0.5;
+
         Toast.show(
-            <ToastBody title1="Luca Bacchi" close={true}>
-                Hello, world! This is a toast message.
+            <ToastBody title1={title1} title2={title2} close={close}>
+                {content}
             </ToastBody>
         );
     };
