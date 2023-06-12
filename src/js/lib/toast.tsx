@@ -1,7 +1,9 @@
-import React from 'react';
+declare const bootstrap: any;
+
+import React, {ReactNode} from 'react';
 import {createRoot} from 'react-dom/client';
 
-const Header = function ({title1, title2, close}) {
+const Header: React.FC<{title1?: string; title2?: string; close?: boolean}> = function ({title1, title2, close}) {
     const show = !!(title1 ?? false) || !!(title2 ?? false) || !!(close ?? false);
 
     if (!show) return null;
@@ -14,7 +16,12 @@ const Header = function ({title1, title2, close}) {
     );
 };
 
-export const ToastBody = function ({title1, title2, close, children}) {
+export const ToastBody: React.FC<{title1?: string; title2?: string; close?: boolean; children: ReactNode}> = function ({
+    title1,
+    title2,
+    close,
+    children,
+}) {
     return (
         <>
             <Header title1={title1} title2={title2} close={close} />
@@ -23,7 +30,7 @@ export const ToastBody = function ({title1, title2, close, children}) {
     );
 };
 
-export const Toast = (function () {
+export const Toast = (() => {
     const positionDiv = document.createElement('div');
     positionDiv.setAttribute('class', 'toast-container position-fixed top-0 end-0 p-3 pt-5');
     document.body.appendChild(positionDiv);
@@ -35,14 +42,14 @@ export const Toast = (function () {
 
         const root = createRoot(toastDiv);
 
-        toastDiv.addEventListener('hidden.bs.toast', function () {
+        toastDiv.addEventListener('hidden.bs.toast', () => {
             root.render(null);
             toastDiv.remove();
         });
 
         const myToast = new bootstrap.Toast(toastDiv);
 
-        const ToastContent = function ({children}) {
+        const ToastContent: React.FC<{children: ReactNode}> = function ({children}) {
             React.useEffect(function () {
                 myToast.show();
             }, []);
@@ -54,7 +61,7 @@ export const Toast = (function () {
     };
 
     return {
-        show: function (body) {
+        show: (body: ReactNode) => {
             const {root, ToastContent} = createToastDiv();
             root.render(<ToastContent>{body}</ToastContent>);
         },

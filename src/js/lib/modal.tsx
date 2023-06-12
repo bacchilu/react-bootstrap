@@ -21,7 +21,7 @@ export const Modal = (() => {
 
     const myModal = new bootstrap.Modal(modalDiv);
 
-    const ModalContent = function ({children}) {
+    const ModalContent: React.FC<{children: ReactNode}> = function ({children}) {
         React.useEffect(() => {
             myModal.show();
         }, []);
