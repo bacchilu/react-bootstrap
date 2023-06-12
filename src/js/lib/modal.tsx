@@ -1,7 +1,9 @@
-import React from 'react';
+declare const bootstrap: any;
+
+import React, {ReactNode} from 'react';
 import {createRoot} from 'react-dom/client';
 
-export const Modal = (function () {
+export const Modal = (() => {
     const modalDiv = document.createElement('div');
     modalDiv.setAttribute('class', 'modal fade');
     modalDiv.setAttribute('tabindex', '-1');
@@ -13,14 +15,14 @@ export const Modal = (function () {
 
     const root = createRoot(modalDialogDiv);
 
-    modalDiv.addEventListener('hidden.bs.modal', function () {
+    modalDiv.addEventListener('hidden.bs.modal', () => {
         root.render(null);
     });
 
     const myModal = new bootstrap.Modal(modalDiv);
 
     const ModalContent = function ({children}) {
-        React.useEffect(function () {
+        React.useEffect(() => {
             myModal.show();
         }, []);
 
@@ -28,10 +30,10 @@ export const Modal = (function () {
     };
 
     return {
-        show: function (body) {
+        show: (body: ReactNode) => {
             root.render(<ModalContent>{body}</ModalContent>);
         },
-        hide: function () {
+        hide: () => {
             myModal.hide();
         },
     };
